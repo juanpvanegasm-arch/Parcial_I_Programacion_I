@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 public class Supermercado {
@@ -34,11 +35,11 @@ public class Supermercado {
 
     public String toString(){
         return "Nombre comercial: "+nombreComercial+
-                "Dirección: "+direccion+
-                "Teléfono: "+telefono+
-                "Lista de productos: "+listaProductos+
-                "Lista de clientes: "+listaClientes+
-                "Lista de compras: "+listaCompras;
+                ", dirección: "+direccion+
+                ", teléfono: "+telefono+
+                ", lista de productos: "+listaProductos+
+                ", lista de clientes: "+listaClientes+
+                ", lista de compras: "+listaCompras;
     }
     public boolean verificarCliente(int documento) {
         boolean existe = false;
@@ -61,6 +62,7 @@ public class Supermercado {
         return ingresado;
     }
     public boolean actualizarCliente(int documento, Cliente clienteActualizado){
+
         boolean actualizado=false;
         for(Cliente cliente : listaClientes){
             if(cliente.getDocumento()==documento){
@@ -172,6 +174,15 @@ public class Supermercado {
             }
         }
         return eliminado;
+    }
+    public double calcularValorTotalEnFechaDeterminada(LocalDate fecha) {
+        double valorTotal = 0;
+        for (Compra compras : getListaCompras()) {
+            if (compras.getFechaRealizacion().equals(fecha)) {
+                valorTotal += compras.calcularValorTotal();
+            }
+        }
+        return valorTotal;
     }
     }
 
