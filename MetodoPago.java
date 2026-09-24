@@ -1,5 +1,8 @@
+package EvaluacionProgramacion1;
+
 public enum MetodoPago {
     TARJETA,
-    TRANSFERENCIA_BANCARIA,
-    EFECTIVO,
+    TRANSFERENCIA,
+    EFECTIVO
+
 }

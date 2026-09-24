@@ -14,21 +14,13 @@ public class Producto {
 
     CategoriaProductos categoria;
 
-    List<Compra> compras;
-
-    List<Cliente> clientes;
-
-
-
-    public Producto(String nombre, int codigoDeProducto, double precioUnitario, int cantidad, CategoriaProductos categoria, ArrayList<Compra> compras, ArrayList<Cliente> clientes) {
+    public Producto(String nombre, int codigoDeProducto, double precioUnitario, int cantidad, CategoriaProductos categoria) {
 
         this.nombre = nombre;
         this.codigoDeProducto = codigoDeProducto;
         this.precioUnitario = precioUnitario;
         this.cantidad = cantidad;
         this.categoria = categoria;
-        this.compras = compras;
-        this.clientes = clientes;
 
     }
 
@@ -72,26 +64,10 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    public List<Compra> getCompras() {
-        return compras;
-    }
-
-    public void setCompras(List<Compra> compras) {
-        this.compras = compras;
-    }
-
-    public List<Cliente> getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(List<Cliente> clientes) {
-        this.clientes = clientes;
-    }
-
     @Override
 
     public String toString() {
 
-        return "Nombre Producto: " + nombre + "Codigo de producto: " + codigoDeProducto + "Precio unitario: " + precioUnitario + "Cantidad: " + cantidad +  "Categoria: " + categoria + "\n Lista compras: " + compras + "\n Lista clientes: " + clientes;
+        return "Nombre Producto: " + nombre + "Codigo de producto: " + codigoDeProducto + "Precio unitario: " + precioUnitario + "Cantidad: " + cantidad +  "Categoria: " + categoria;
     }
 }

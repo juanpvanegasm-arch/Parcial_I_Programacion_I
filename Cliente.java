@@ -12,18 +12,18 @@ public class Cliente {
 
     private String correoElectronico;
 
-    List<Productos> productos;
+    List<Producto> productos;
 
     List<Cliente> clientes;
 
-    public Cliente (String nombre, int documento, int telefono, String correoElectronico, ArrayList<Productos> productos, ArrayList<Cliente> clientes) {
+    public Cliente (String nombre, int documento, int telefono, String correoElectronico) {
 
         this.nombre = nombre;
         this.documento = documento;
         this.telefono = telefono;
         this.correoElectronico = correoElectronico;
-        this.productos = productos;
-        this.clientes = clientes;
+        this.productos = new ArrayList<>();
+        this.clientes = new ArrayList<>();
 
     }
 
@@ -59,11 +59,11 @@ public class Cliente {
         this.correoElectronico = correoElectronico;
     }
 
-    public List<Productos> getProductos() {
+    public List<Producto> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Productos> productos) {
+    public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
 

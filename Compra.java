@@ -10,22 +10,18 @@ public class Compra {
 
     private LocalDate fecha;
 
-    private double valorTotal;
-
     MetodoPago metodoPago;
 
-    List<Productos> productos;
+    List<Producto> productos;
 
-    List<Cliente> clientes;
 
-    public Compra (int codigo, LocalDate fecha, double valorTotal, MetodoPago metodoPago, ArrayList<Productos> productos, ArrayList<Cliente> clientes) {
+    public Compra (int codigo, LocalDate fecha, MetodoPago metodoPago) {
 
         this.codigo = codigo;
         this.fecha = fecha;
-        this.valorTotal = valorTotal;
         this.metodoPago = metodoPago;
-        this.productos = productos;
-        this.clientes = clientes;
+        this.productos = new ArrayList<>();
+
     }
 
     public int getCodigo() {
@@ -44,14 +40,6 @@ public class Compra {
         this.fecha = fecha;
     }
 
-    public double getValorTotal() {
-        return valorTotal;
-    }
-
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
     public MetodoPago getMetodoPago() {
         return metodoPago;
     }
@@ -60,26 +48,33 @@ public class Compra {
         this.metodoPago = metodoPago;
     }
 
-    public List<Productos> getProductos() {
+    public List<Producto> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Productos> productos) {
+    public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
 
-    public List<Cliente> getClientes() {
-        return clientes;
-    }
 
-    public void setClientes(List<Cliente> clientes) {
-        this.clientes = clientes;
+    // funcion para calcular el valor total de la compra
+
+    public double calcularValorTotal (){
+
+        double valorTotal = 0;
+
+        for (Producto producto : productos) {
+
+            valorTotal += producto.getPrecioUnitario() * producto.getCantidad();
+
+        }
+        return valorTotal;
     }
 
     @Override
 
     public String toString(){
 
-        return "Codigo de compra: " + codigo + "Fecha de compra: " + fecha + "Valor total: " + valorTotal + "Metodo de pago: " +  metodoPago + "\nLista clientes: " + clientes + "\nLista productos " + productos;
+        return "Codigo de compra: " + codigo + "Fecha de compra: " + fecha  + "Metodo de pago: " +  metodoPago + "\nLista clientes: " + "productos: " + productos;
     }
 }
