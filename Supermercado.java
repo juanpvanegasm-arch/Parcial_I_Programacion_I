@@ -6,6 +6,7 @@ public class Supermercado {
     private String direccion;
     private int telefono;
 
+    //crear listas
     private List<Producto> listaProductos;
     private List<Cliente> listaClientes;
     private List<Compra> listaCompras;
@@ -15,6 +16,7 @@ public class Supermercado {
         this.direccion=direccion;
         this.telefono=telefono;
 
+        //Inicializar listas
         listaClientes = new ArrayList<>();
         listaCompras = new ArrayList<>();
         listaProductos = new ArrayList<>();
@@ -41,6 +43,8 @@ public class Supermercado {
                 ", lista de clientes: "+listaClientes+
                 ", lista de compras: "+listaCompras;
     }
+
+    //Funciones verificar, agregar, actualizar y eliminar clientes
     public boolean verificarCliente(int documento) {
         boolean existe = false;
         for (Cliente cliente : listaClientes) {
@@ -87,6 +91,8 @@ public class Supermercado {
         }
         return eliminado;
     }
+
+    //Funciones verificar, agregar, actualizar y eliminar productos
     public boolean verificarProducto(int codigo) {
         boolean existe = false;
         for (Producto producto : listaProductos) {
@@ -132,6 +138,8 @@ public class Supermercado {
         }
         return eliminado;
     }
+
+    //Funciones verificar, agregar, actualizar y eliminar compra
     public boolean verificarCompra(int codigo) {
         boolean existe = false;
         for (Compra compra : listaCompras) {
@@ -175,6 +183,8 @@ public class Supermercado {
         }
         return eliminado;
     }
+
+    //Calcular valor total en fecha determinada
     public double calcularValorTotalEnFechaDeterminada(LocalDate fecha) {
         double valorTotal = 0;
         for (Compra compras : getListaCompras()) {
@@ -183,6 +193,9 @@ public class Supermercado {
             }
         }
         return valorTotal;
+    }
+    public void restarCantidadDeProductos(int cantidadPedida, Producto producto){
+        producto.setCantidadDisponible(producto.getCantidadDisponible()-cantidadPedida);
     }
     }
 

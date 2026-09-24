@@ -198,7 +198,7 @@ public class Aplicacion {
                         if (cantidadPedida > productoEncontrado.getCantidadDisponible()) {
                             System.out.print("Stock insuficiente. Cantidad disponible: " + productoEncontrado.getCantidadDisponible());
                         } else {
-                            productoEncontrado.setCantidadDisponible(productoEncontrado.getCantidadDisponible() - cantidadPedida);
+                           supermercado.restarCantidadDeProductos(cantidadPedida, productoEncontrado);
                             Producto productoComprado = new Producto(
                                     productoEncontrado.getNombre(),
                                     productoEncontrado.getCodigo(),
